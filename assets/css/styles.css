@@ -94,6 +94,36 @@ body {
   justify-content: center;
   margin: 0 15rem;
 }
+/* start of question styles */
+.question-container {
+  padding: 0%;
+}
+.question-container .content-section-title {
+  background-color: var(--very-dark-green);
+  text-transform: uppercase;
+}
+.feedback-list {
+  list-style: none;
+  text-align: left;
+  margin: 2rem 2rem;
+  padding: 2rem;
+  border-radius: 0.4rem;
+  background-color: var(--very-dark-green);
+  color: var(--beige);
+}
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 0;
+  font-size: 1.8rem;
+}
+.list-item:hover {
+  cursor: pointer;
+  background-color: var(--beige);
+  color: var(--very-dark-green);
+}
+/* end of question styles */
 
 /*start of footer styles */
 .footer {
