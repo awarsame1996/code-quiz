@@ -1,0 +1,123 @@
+:root {
+  --very-dark-green: #1a3c40;
+  --dark-green: #1d5c63;
+  --green: #417d7a;
+  --beige: #ede6db;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  margin: 0%;
+  line-height: 2;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+}
+/* start of header styles*/
+
+.header {
+  background-color: var(--very-dark-green);
+}
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.nav-link {
+  text-decoration: none;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--beige);
+  padding: 0.8rem;
+}
+.nav-link:hover {
+  box-shadow: 0 0 1rem 0.5rem var(--very-dark-green);
+  border-radius: 25%;
+  background-color: var(--dark-green);
+  border-bottom: 0.2rem solid aliceblue;
+}
+/*end of header styles*/
+
+/*start of banner style*/
+.content-section {
+  letter-spacing: 0.6rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  color: var(--green);
+  box-shadow: 0rem 0rem 0.7rem var(--beige);
+}
+.content-section-title {
+  font-size: 4rem;
+}
+.content-section-info {
+  font-size: 2rem;
+}
+
+/*end of banner style */
+
+/*start of button style*/
+.btn-control {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.btn {
+  font-size: 1.8rem;
+  padding: 2rem;
+  border: var(--very-dark-green) 0.5rem solid;
+  color: var(--dark-green);
+  border-radius: 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--very-dark-green);
+  box-shadow: 0.5rem 0.5rem 0.7rem rgba(var(--beige), 0.3);
+  color: var(--beige);
+  border: var(--dark-green) 0.5rem solid;
+}
+/*start of button style*/
+.main {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 1rem;
+}
+
+/*start of footer styles */
+.footer {
+  background-color: var(--very-dark-green);
+  font-size: 1.4rem;
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--beige);
+  letter-spacing: 0.4rem;
+}
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  margin: 1rem 0;
+}
+.contact-link {
+  text-decoration: none;
+  color: var(--beige);
+  margin: 0.5rem 0;
+}
+.contact-link:hover {
+}
+
+/*end of footer styles */
