@@ -117,11 +117,15 @@ body {
   justify-content: center;
   padding: 1rem 0;
   font-size: 1.8rem;
+  text-transform: uppercase;
 }
 .list-item:hover {
   cursor: pointer;
   background-color: var(--beige);
   color: var(--very-dark-green);
+}
+.list-item:visited {
+  background-color: blue;
 }
 /* end of question styles */
 
