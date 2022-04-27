@@ -92,7 +92,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 1rem;
+  margin: 0 15rem;
 }
 
 /*start of footer styles */
@@ -121,3 +121,11 @@ body {
 }
 
 /*end of footer styles */
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0;
+  }
+  .content-section {
+    margin: 2rem 0.75rem;
+  }
+}
