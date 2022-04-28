@@ -18,6 +18,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: black;
+  background-image: url(../images/football.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 /* start of header styles*/
 
@@ -32,18 +36,31 @@ body {
   align-items: center;
   padding: 1rem 2rem;
 }
+.nav-link-logo {
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.nav-link-logo:hover {
+  box-shadow: inset 100px 0 0 0 #54b3d6;
+}
+
+.logo-img {
+  width: 10.4rem;
+  height: 6.4rem;
+  object-fit: contain;
+}
 .nav-link {
   text-decoration: none;
   font-size: 1.8rem;
   text-transform: uppercase;
   color: var(--beige);
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   padding: 0.8rem;
 }
 .nav-link:hover {
-  box-shadow: 0 0 1rem 0.5rem var(--very-dark-green);
-  border-radius: 25%;
-  background-color: var(--dark-green);
-  border-bottom: 0.2rem solid aliceblue;
+  box-shadow: inset 100px 0 0 0 #54b3d6;
 }
 /*end of header styles*/
 
@@ -54,8 +71,15 @@ body {
   text-align: center;
   position: relative;
   color: var(--green);
+  background-color: black, 90%;
   box-shadow: 0rem 0rem 0.7rem var(--beige);
+  background-image: url("../images/splash.png");
+  background-size: cover;
+  background-position: center;
+  animation: animatedBackground 60s linear infinite alternate;
+  border-radius: 20%;
 }
+
 .content-section-title {
   font-size: 4rem;
 }
@@ -97,6 +121,7 @@ body {
 /* start of question styles */
 .question-container {
   padding: 0%;
+  border-radius: 20%;
 }
 .question-container .content-section-title {
   background-color: var(--very-dark-green);
@@ -110,22 +135,29 @@ body {
   border-radius: 0.4rem;
   background-color: var(--very-dark-green);
   color: var(--beige);
+  border-radius: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .list-item {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 1rem 0;
+  margin: 2rem 4rem;
   font-size: 1.8rem;
   text-transform: uppercase;
+  border-radius: 20%;
+  align-items: center;
+  background-color: black;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .list-item:hover {
   cursor: pointer;
-  background-color: var(--beige);
   color: var(--very-dark-green);
-}
-.list-item:visited {
-  background-color: blue;
+  box-shadow: inset 20rem 0 0 0 var(--beige);
 }
 /* end of question styles */
 
@@ -149,9 +181,15 @@ body {
 .contact-link {
   text-decoration: none;
   color: var(--beige);
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   margin: 0.5rem 0;
 }
 .contact-link:hover {
+  box-shadow: inset 100px 0 0 0 #54b3d6;
+  color: white;
 }
 
 /*end of footer styles */
@@ -161,5 +199,13 @@ body {
   }
   .content-section {
     margin: 2rem 0.75rem;
+  }
+}
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }

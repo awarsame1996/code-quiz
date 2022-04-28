@@ -149,13 +149,6 @@ const renderQuestion = () => {
   const div = document.createElement("div");
   div.setAttribute("class", "btn-control");
 
-  /*// create button
-  const button = document.createElement("button");
-  button.setAttribute("class", "btn");
-  button.setAttribute("id", "next-btn");
-  button.textContent = "Next";
-  div.append(button);*/
-
   //append h2, ul and div to section
   section.append(h2, ul);
 
