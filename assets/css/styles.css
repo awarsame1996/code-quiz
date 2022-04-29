@@ -17,11 +17,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: black;
   background-image: url(../images/football.jpeg);
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
 }
 /* start of header styles*/
 
@@ -71,13 +69,13 @@ body {
   text-align: center;
   position: relative;
   color: var(--green);
-  background-color: black, 90%;
+  background-color: black;
   box-shadow: 0rem 0rem 0.7rem var(--beige);
   background-image: url("../images/splash.png");
   background-size: cover;
-  background-position: center;
+  background-position: right;
   animation: animatedBackground 60s linear infinite alternate;
-  border-radius: 20%;
+  border-radius: 10%;
 }
 
 .content-section-title {
@@ -123,9 +121,10 @@ body {
   padding: 0%;
   border-radius: 20%;
 }
-.question-container .content-section-title {
+.question-section-title {
   background-color: var(--very-dark-green);
   text-transform: uppercase;
+  font-size: 2rem;
 }
 .feedback-list {
   list-style: none;
@@ -136,28 +135,23 @@ body {
   background-color: var(--very-dark-green);
   color: var(--beige);
   border-radius: 10%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .list-item {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 1rem 0;
-  margin: 2rem 4rem;
-  font-size: 1.8rem;
+  margin: 0;
+  font-size: 1rem;
   text-transform: uppercase;
-  border-radius: 20%;
   align-items: center;
   background-color: black;
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
 }
 .list-item:hover {
   cursor: pointer;
   color: var(--very-dark-green);
-  box-shadow: inset 20rem 0 0 0 var(--beige);
+  background-color: var(--beige);
 }
 /* end of question styles */
 

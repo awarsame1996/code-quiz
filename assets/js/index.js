@@ -15,24 +15,29 @@ const options = ["answer 1", "answer 2", "answer 3", "answer 4"];
 //all questions array
 const questions = [
   {
-    text: "question: ",
-    options,
+    text: "who has the highest amount of goals in a premier league season?: ",
+    options: ["Mohammed Salah", "Alan Shearer", "Cristiano Ronaldo", "Suarez"],
   },
   {
-    text: "question: ",
-    options,
+    text: "which club has the highest amount of premier league titles? ",
+    options: [
+      " Derby County",
+      "Liverpool",
+      "Manchester City",
+      "Manchester United",
+    ],
   },
   {
-    text: "question: ",
-    options,
+    text: "Who has the most assist in a premier league season: ",
+    options: ["Kevin de Britney", "Thierry Henry", "Ryan Giggs", "mesut özil"],
   },
   {
-    text: "question: ",
-    options,
+    text: "How many premier league titles have Manchester city won? ",
+    options: ["5", "8", "2", "11"],
   },
   {
-    text: "question: ",
-    options,
+    text: "which club has won premier league with no losses? ",
+    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
   },
   {
     text: "question: ",
@@ -57,10 +62,18 @@ const removeQuestion = () => {
   console.log("remove question");
   document.getElementById("question-container").remove();
 };
-/*declare the event handler function for next button click
-const onNextButtonClick = () => {
-  console.log("next button clicked");
-};*/
+//initialise local storage
+const initialiseLocalStorage = () => {
+  //get feedbackResults from LS
+  const feedbackResultsFromLS = JSON.parse(
+    localStorage.getItem("feedbackResults")
+  );
+  console.log(feedbackResultsFromLS);
+  if (!feedbackResultsFromLS) {
+    localStorage.setItem("feedbackResults", JSON.stringify([]));
+  }
+};
+
 // event handler function to handle click events in question section
 const handleOptionClick = (event) => {
   console.log("clicked somewhere in question section");
@@ -101,6 +114,7 @@ const handleOptionClick = (event) => {
     }
   }
 };
+
 //function to render results
 const renderResults = () => {
   console.log("renderResults");
@@ -120,12 +134,18 @@ const renderQuestion = () => {
   section.setAttribute("id", "question-container");
   // creat h2
   const h2 = document.createElement("h2");
-  h2.setAttribute("class", "content-section-title");
+  h2.setAttribute(
+    "class",
+    "question-section-title animate__animated animate__bounceInDown"
+  );
   // specific to the question (dynamic)
   h2.textContent = `${questionIndex + 1}. ${currentQuestion.text}`;
   // creat ul and append 4 li
   const ul = document.createElement("ul");
-  ul.setAttribute("class", "feedback-list");
+  ul.setAttribute(
+    "class",
+    "feedback-list animate__animated animate__bounceInDown"
+  );
 
   // call function to create and append list items to ul****
   const li1 = document.createElement("li");
@@ -161,7 +181,8 @@ const renderQuestion = () => {
 //declare the event handler function for start button click
 const onStartButtonClick = () => {
   console.log("start button clicked");
-
+  //initialise feedback results
+  initialiseLocalStorage();
   //remove banner section
   removeBanner();
 
