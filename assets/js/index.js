@@ -94,52 +94,52 @@ const renderResults = () => {
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "content-section-title");
   h2.textContent = "results";
-  // create div container for results
-  const div = document.createElement("div");
-  div.setAttribute("class", "results-table");
-  // create 2 uls with 8 li
-  const ul = document.createElement("ul");
-  ul.setAttribute(
-    "class",
-    "results-lists animate__animated animate__bounceInDown"
-  );
-  const li1 = document.createElement("li");
-  li1.setAttribute("class", "results-item");
+  // // create div container for results
+  // const div = document.createElement("div");
+  // div.setAttribute("class", "results-table");
+  // // create 2 uls with 8 li
+  // const ul = document.createElement("ul");
+  // ul.setAttribute(
+  //   "class",
+  //   "results-lists animate__animated animate__bounceInDown"
+  // );
+  // const li1 = document.createElement("li");
+  // li1.setAttribute("class", "results-item");
 
-  li1.textContent = questions[0].text;
-  const li2 = document.createElement("li");
-  li2.setAttribute("class", "results-item");
-  li2.textContent = questions[1].text;
-  const li3 = document.createElement("li");
-  li3.setAttribute("class", "results-item");
+  // li1.textContent = questions[0].text;
+  // const li2 = document.createElement("li");
+  // li2.setAttribute("class", "results-item");
+  // li2.textContent = questions[1].text;
+  // const li3 = document.createElement("li");
+  // li3.setAttribute("class", "results-item");
 
-  li3.textContent = questions[2].text;
-  const li4 = document.createElement("li");
-  li4.setAttribute("class", "results-item");
-  li4.textContent = questions[3].text;
-  ul.append(li1, li2, li3, li4);
-  const ul1 = document.createElement("ul");
-  ul1.setAttribute(
-    "class",
-    "results-lists animate__animated animate__bounceInDown"
-  );
-  const li5 = document.createElement("li");
-  li5.setAttribute("class", "results-item");
+  // li3.textContent = questions[2].text;
+  // const li4 = document.createElement("li");
+  // li4.setAttribute("class", "results-item");
+  // li4.textContent = questions[3].text;
+  // ul.append(li1, li2, li3, li4);
+  // const ul1 = document.createElement("ul");
+  // ul1.setAttribute(
+  //   "class",
+  //   "results-lists animate__animated animate__bounceInDown"
+  // );
+  // const li5 = document.createElement("li");
+  // li5.setAttribute("class", "results-item");
 
-  li5.textContent = tableArr[0].value;
-  const li6 = document.createElement("li");
-  li6.setAttribute("class", "results-item");
-  li6.textContent = tableArr[1].value;
-  const li7 = document.createElement("li");
-  li7.setAttribute("class", "results-item");
+  // li5.textContent = tableArr[0].value;
+  // const li6 = document.createElement("li");
+  // li6.setAttribute("class", "results-item");
+  // li6.textContent = tableArr[1].value;
+  // const li7 = document.createElement("li");
+  // li7.setAttribute("class", "results-item");
 
-  li7.textContent = tableArr[2].value;
-  const li8 = document.createElement("li");
-  li8.setAttribute("class", "results-item");
-  li8.textContent = tableArr[3].value;
-  ul1.append(li5, li6, li7, li8);
+  // li7.textContent = tableArr[2].value;
+  // const li8 = document.createElement("li");
+  // li8.setAttribute("class", "results-item");
+  // li8.textContent = tableArr[3].value;
+  // ul1.append(li5, li6, li7, li8);
 
-  div.append(ul, ul1);
+  // div.append(ul, ul1);
 
   section.append(h2, div);
   main.append(section);
