@@ -69,16 +69,85 @@ const initialiseLocalStorage = () => {
     localStorage.getItem("feedbackResults")
   );
   console.log(feedbackResultsFromLS);
-  if (!feedbackResultsFromLS) {
-    localStorage.setItem("feedbackResults", JSON.stringify([]));
-  }
+  localStorage.setItem("feedbackResults", JSON.stringify([]));
+};
+// function to store answer in local storage
+const storeAnswerInLS = (answer) => {
+  //get feedbackResults from LS
+  const feedbackResults = JSON.parse(localStorage.getItem("feedbackResults"));
+
+  //push answer in to array
+  feedbackResults.push(answer);
+
+  //set feedbackResults in LS
+  localStorage.setItem("feedbackResults", JSON.stringify(feedbackResults));
 };
 
+//function to render results
+const renderResults = () => {
+  console.log("renderResults");
+  const tableArr = JSON.parse(localStorage.getItem("feedbackResults"));
+  //creat section
+  const section = document.createElement("section");
+  section.setAttribute("class", "content-section results-section");
+  // create h2
+  const h2 = document.createElement("h2");
+  h2.setAttribute("class", "content-section-title");
+  h2.textContent = "results";
+  // create div container for results
+  const div = document.createElement("div");
+  div.setAttribute("class", "results-table");
+  // create 2 uls with 8 li
+  const ul = document.createElement("ul");
+  ul.setAttribute(
+    "class",
+    "results-lists animate__animated animate__bounceInDown"
+  );
+  const li1 = document.createElement("li");
+  li1.setAttribute("class", "results-item");
+
+  li1.textContent = questions[0].text;
+  const li2 = document.createElement("li");
+  li2.setAttribute("class", "results-item");
+  li2.textContent = questions[1].text;
+  const li3 = document.createElement("li");
+  li3.setAttribute("class", "results-item");
+
+  li3.textContent = questions[2].text;
+  const li4 = document.createElement("li");
+  li4.setAttribute("class", "results-item");
+  li4.textContent = questions[3].text;
+  ul.append(li1, li2, li3, li4);
+  const ul1 = document.createElement("ul");
+  ul1.setAttribute(
+    "class",
+    "results-lists animate__animated animate__bounceInDown"
+  );
+  const li5 = document.createElement("li");
+  li5.setAttribute("class", "results-item");
+
+  li5.textContent = tableArr[0].value;
+  const li6 = document.createElement("li");
+  li6.setAttribute("class", "results-item");
+  li6.textContent = tableArr[1].value;
+  const li7 = document.createElement("li");
+  li7.setAttribute("class", "results-item");
+
+  li7.textContent = tableArr[2].value;
+  const li8 = document.createElement("li");
+  li8.setAttribute("class", "results-item");
+  li8.textContent = tableArr[3].value;
+  ul1.append(li5, li6, li7, li8);
+
+  div.append(ul, ul1);
+
+  section.append(h2, div);
+  main.append(section);
+};
 // event handler function to handle click events in question section
 const handleOptionClick = (event) => {
   console.log("clicked somewhere in question section");
-  //get current target
-  const currentTarget = event.currentTarget;
+
   // get target
   const target = event.target;
   //check if click originates from li
@@ -92,12 +161,11 @@ const handleOptionClick = (event) => {
     console.log(question);
     //build an answer object that contains question and answer
     const answer = {
-      question,
       value,
     };
 
     //TODO: store answer in local storage
-    console.log(answer);
+    storeAnswerInLS(answer);
     //remove question
     removeQuestion();
     //go to next question if not the last question
@@ -115,10 +183,6 @@ const handleOptionClick = (event) => {
   }
 };
 
-//function to render results
-const renderResults = () => {
-  console.log("renderResults");
-};
 //function to render form
 const renderForm = () => {
   console.log("renderForm");
