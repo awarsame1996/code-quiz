@@ -164,16 +164,25 @@ body {
 }
 .results-list {
   background-color: var(--very-dark-green);
+  justify-content: center;
+  align-items: center;
 }
 .results-item {
   padding: 1rem 0;
-  margin: 0;
+  margin: 0.5rem, 0;
   font-size: 1rem;
+  width: 100%;
   text-transform: uppercase;
   align-items: center;
   list-style: none;
-  transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
   color: var(--beige);
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  text-align: center;
+}
+.results-item:hover {
+  cursor: pointer;
+  color: var(--very-dark-green);
+  background-color: var(--beige);
 }
 /* end of results styles */
 /* start of form styles */
