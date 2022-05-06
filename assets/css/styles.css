@@ -158,13 +158,11 @@ body {
 /* start of results styles */
 .results-section {
   display: flex;
-  flex-direction: column;
-}
-.results-table {
-  display: flex;
   flex-direction: row;
-  justify-content: center;
   background-color: black;
+}
+.results-list {
+  background-color: var(--very-dark-green);
 }
 .results-item {
   padding: 1rem 0;
@@ -174,6 +172,7 @@ body {
   align-items: center;
   list-style: none;
   transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
+  color: var(--beige);
 }
 
 /*start of footer styles */

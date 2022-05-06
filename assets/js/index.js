@@ -9,9 +9,6 @@ const main = document.getElementById("main");
 // current question index
 let questionIndex = 0;
 
-// all options
-const options = ["answer 1", "answer 2", "answer 3", "answer 4"];
-
 //all questions array
 const questions = [
   {
@@ -41,15 +38,15 @@ const questions = [
   },
   {
     text: "question: ",
-    options,
+    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
   },
   {
     text: "question: ",
-    options,
+    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
   },
   {
     text: "question: ",
-    options,
+    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
   },
 ];
 //function to banner section
@@ -87,60 +84,88 @@ const storeAnswerInLS = (answer) => {
 const renderResults = () => {
   console.log("renderResults");
   const tableArr = JSON.parse(localStorage.getItem("feedbackResults"));
+  console.log(tableArr);
   //creat section
   const section = document.createElement("section");
-  section.setAttribute("class", "content-section results-section");
+  section.setAttribute("class", "content-section");
   // create h2
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "content-section-title");
   h2.textContent = "results";
-  // // create div container for results
-  // const div = document.createElement("div");
-  // div.setAttribute("class", "results-table");
-  // // create 2 uls with 8 li
-  // const ul = document.createElement("ul");
-  // ul.setAttribute(
-  //   "class",
-  //   "results-lists animate__animated animate__bounceInDown"
-  // );
-  // const li1 = document.createElement("li");
-  // li1.setAttribute("class", "results-item");
+  // create div container for results
+  const div = document.createElement("div");
+  div.setAttribute("class", "results-section");
+  // create 2 uls with 8 li
+  const ul = document.createElement("ul");
+  ul.setAttribute(
+    "class",
+    "results-list animate__animated animate__bounceInDown"
+  );
+  const li1 = document.createElement("li");
+  li1.setAttribute("class", "results-item");
 
-  // li1.textContent = questions[0].text;
-  // const li2 = document.createElement("li");
-  // li2.setAttribute("class", "results-item");
-  // li2.textContent = questions[1].text;
-  // const li3 = document.createElement("li");
-  // li3.setAttribute("class", "results-item");
+  li1.textContent =
+    "question: " +
+    tableArr[0].question +
+    "\n" +
+    "response: " +
+    tableArr[0].value;
+  const li2 = document.createElement("li");
+  li2.setAttribute("class", "results-item");
+  li2.textContent =
+    "question: " +
+    tableArr[1].question +
+    "\n" +
+    "response: " +
+    tableArr[1].value;
+  const li3 = document.createElement("li");
+  li3.setAttribute("class", "results-item");
+  li3.textContent =
+    "question: " +
+    tableArr[2].question +
+    "\n" +
+    "response: " +
+    tableArr[2].value;
+  const li4 = document.createElement("li");
+  li4.setAttribute("class", "results-item");
+  li4.textContent =
+    "question: " +
+    tableArr[3].question +
+    "\n" +
+    "response: " +
+    tableArr[3].value;
+  const li5 = document.createElement("li");
+  li5.setAttribute("class", "results-item");
+  li5.textContent =
+    "question: " +
+    tableArr[4].question +
+    "\n" +
+    "response: " +
+    tableArr[4].value;
+  const li6 = document.createElement("li");
+  li6.setAttribute("class", "results-item");
+  li6.textContent =
+    "question: " +
+    tableArr[5].question +
+    "\n" +
+    "response: " +
+    tableArr[5].value;
+  const li7 = document.createElement("li");
+  li7.setAttribute("class", "results-item");
+  li7.textContent =
+    "question: " +
+    tableArr[6].question +
+    "\n" +
+    "response: " +
+    tableArr[6].value;
+  const li8 = document.createElement("li");
+  li8.setAttribute("class", "results-item");
+  li8.textContent =
+    "question: " + tableArr[7].question + "response: " + tableArr[7].value;
 
-  // li3.textContent = questions[2].text;
-  // const li4 = document.createElement("li");
-  // li4.setAttribute("class", "results-item");
-  // li4.textContent = questions[3].text;
-  // ul.append(li1, li2, li3, li4);
-  // const ul1 = document.createElement("ul");
-  // ul1.setAttribute(
-  //   "class",
-  //   "results-lists animate__animated animate__bounceInDown"
-  // );
-  // const li5 = document.createElement("li");
-  // li5.setAttribute("class", "results-item");
+  ul.append(li1, li2, li3, li4, li5, li6, li7, li8);
 
-  // li5.textContent = tableArr[0].value;
-  // const li6 = document.createElement("li");
-  // li6.setAttribute("class", "results-item");
-  // li6.textContent = tableArr[1].value;
-  // const li7 = document.createElement("li");
-  // li7.setAttribute("class", "results-item");
-
-  // li7.textContent = tableArr[2].value;
-  // const li8 = document.createElement("li");
-  // li8.setAttribute("class", "results-item");
-  // li8.textContent = tableArr[3].value;
-  // ul1.append(li5, li6, li7, li8);
-
-  // div.append(ul, ul1);
-
+  div.append(ul);
   section.append(h2, div);
   main.append(section);
 };
@@ -161,6 +186,7 @@ const handleOptionClick = (event) => {
     console.log(question);
     //build an answer object that contains question and answer
     const answer = {
+      question,
       value,
     };
 
