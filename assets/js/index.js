@@ -255,9 +255,6 @@ const renderQuestion = () => {
   li4.setAttribute("data-value", currentQuestion.options[3]);
   li4.textContent = currentQuestion.options[3];
   ul.append(li1, li2, li3, li4);
-  // create div and append button
-  const div = document.createElement("div");
-  div.setAttribute("class", "btn-control");
 
   //append h2, ul and div to section
   section.append(h2, ul);
