@@ -212,6 +212,32 @@ const handleOptionClick = (event) => {
 //function to render form
 const renderForm = () => {
   console.log("renderForm");
+  const section = document.createElement("section");
+  section.setAttribute("class", "form-section content-section");
+  const h2 = document.createElement("h2");
+  h2.setAttribute("class", "content-section-title");
+  h2.textContent = "submit your feedback";
+  const form = document.createElement("form");
+  form.setAttribute("class", "form-section");
+
+  const inputDiv = document.createElement("div");
+  inputDiv.setAttribute("class", "form-control");
+  const input = document.createElement("input");
+  input.setAttribute("class", "form-input");
+  input.setAttribute("type", "text");
+  input.setAttribute("placeholder", "enter full name");
+
+  inputDiv.append(input);
+  const submitDiv = document.createElement("div");
+  submitDiv.setAttribute("class", "form-control");
+  const button = document.createElement("button");
+  button.setAttribute("class", "btn");
+  button.setAttribute("type", "submit");
+  button.textContent = "submit";
+  submitDiv.append(button);
+  form.append(inputDiv, submitDiv);
+  section.append(h2, form);
+  main.append(section);
 };
 //function to render question
 const renderQuestion = () => {
