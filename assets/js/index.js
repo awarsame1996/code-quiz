@@ -30,7 +30,7 @@ const questions = [
   {
     text: "Who has the most assist in a premier league season: ",
     options: ["Kevin de Britney", "Thierry Henry", "Ryan Giggs", "Mesut özil"],
-    answer: " Thierry Henry",
+    answer: "Thierry Henry",
   },
   {
     text: "How many premier league titles have Manchester city won? ",
@@ -49,7 +49,7 @@ const questions = [
   },
   {
     text: "Who got more assists? ",
-    options: ["Wayne Rooney ", "Frank Lampard", "Matic", "Nicolas Anelka"],
+    options: ["Wayne Rooney", "Frank Lampard", "Matic", "Nicolas Anelka"],
     answer: "Wayne Rooney",
   },
   {
@@ -111,13 +111,13 @@ const renderResults = () => {
   section.setAttribute("class", "content-section");
   section.setAttribute("id", "results-container");
   // create h1
-  const h1 = document.createElement("h1");
-  h1.setAttribute("class", "content-section-title");
-  h1.textContent = "results";
+  const title = document.createElement("h2");
+  title.setAttribute("class", "content-section-title");
+  title.textContent = "results";
   //create scoreboard
   const h2 = document.createElement("h2");
-  h1.setAttribute("class", "content-section-info");
-  h1.textContent = "your score was: " + scoreIndex + "/" + questions.length;
+  h2.setAttribute("class", "content-section-info");
+  h2.textContent = "your score was: " + scoreIndex + "/" + questions.length;
   // create div container for results
   const div = document.createElement("div");
   div.setAttribute("class", "results-section");
@@ -192,7 +192,7 @@ const renderResults = () => {
   ul.append(li1, li2, li3, li4, li5, li6, li7, li8);
 
   div.append(ul);
-  section.append(h1, h2, div);
+  section.append(title, h2, div);
   main.append(section);
 };
 //function to render form
@@ -375,7 +375,7 @@ const handleFormSubmit = (event) => {
   event.preventDefault();
   //get full name from input
   const fullName = document.getElementById("full-name").value;
-
+  const score = scoreIndex + "/" + questions.length;
   //validate
   if (fullName) {
     // if valid then store name and score
@@ -384,6 +384,7 @@ const handleFormSubmit = (event) => {
     const results = {
       fullName,
       feedbackResults,
+      score,
     };
 
     // push results back to LS
