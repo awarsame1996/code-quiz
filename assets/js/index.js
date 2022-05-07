@@ -7,11 +7,15 @@ const main = document.getElementById("main");
 // current question index
 let questionIndex = 0;
 
+//current score index
+let scoreIndex = 0;
+
 //all questions array
 const questions = [
   {
     text: "who has the highest amount of goals in a premier league season?: ",
     options: ["Mohammed Salah", "Alan Shearer", "Cristiano Ronaldo", "Suarez"],
+    answer: "Mohammed Salah",
   },
   {
     text: "which club has the highest amount of premier league titles? ",
@@ -21,30 +25,37 @@ const questions = [
       "Manchester City",
       "Manchester United",
     ],
+    answer: "Manchester United",
   },
   {
     text: "Who has the most assist in a premier league season: ",
-    options: ["Kevin de Britney", "Thierry Henry", "Ryan Giggs", "mesut özil"],
+    options: ["Kevin de Britney", "Thierry Henry", "Ryan Giggs", "Mesut özil"],
+    answer: " Thierry Henry",
   },
   {
     text: "How many premier league titles have Manchester city won? ",
     options: ["5", "8", "2", "11"],
+    answer: "5",
   },
   {
     text: "which club has won premier league with no losses? ",
     options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
+    answer: "Arsenal",
   },
   {
-    text: "question: ",
-    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
+    text: "How many managers have lost their jobs in the 2019/20 Premier League season?",
+    options: ["7", "1", "4", "6"],
+    answer: "6",
   },
   {
-    text: "question: ",
-    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
+    text: "Who got more assists? ",
+    options: ["Wayne Rooney ", "Frank Lampard", "Matic", "Nicolas Anelka"],
+    answer: "Wayne Rooney",
   },
   {
-    text: "question: ",
-    options: ["chelsea", "leicester", "Arsenal", "Manchester City"],
+    text: "Which player has scored the most free-kicks? ",
+    options: ["David Beckham", "Ronaldo", "Messi", "Drogba"],
+    answer: "David Beckham",
   },
 ];
 // function to render banner
@@ -99,10 +110,14 @@ const renderResults = () => {
   const section = document.createElement("section");
   section.setAttribute("class", "content-section");
   section.setAttribute("id", "results-container");
-  // create h2
+  // create h1
+  const h1 = document.createElement("h1");
+  h1.setAttribute("class", "content-section-title");
+  h1.textContent = "results";
+  //create scoreboard
   const h2 = document.createElement("h2");
-  h2.setAttribute("class", "content-section-title");
-  h2.textContent = "results";
+  h1.setAttribute("class", "content-section-info");
+  h1.textContent = "your score was: " + scoreIndex + "/" + questions.length;
   // create div container for results
   const div = document.createElement("div");
   div.setAttribute("class", "results-section");
@@ -177,7 +192,7 @@ const renderResults = () => {
   ul.append(li1, li2, li3, li4, li5, li6, li7, li8);
 
   div.append(ul);
-  section.append(h2, div);
+  section.append(h1, h2, div);
   main.append(section);
 };
 //function to render form
@@ -325,6 +340,13 @@ const handleOptionClick = (event) => {
     //get the question the user answered
     const question = questions[questionIndex].text;
     console.log(question);
+    const correctValue = questions[questionIndex].answer;
+    console.log("cprrect is :" + correctValue);
+
+    if (value == correctValue) {
+      scoreIndex += 1;
+      console.log("current score" + scoreIndex);
+    }
     //build an answer object that contains question and answer
     const answer = {
       question,
@@ -343,7 +365,6 @@ const handleOptionClick = (event) => {
       renderQuestion();
     } else {
       // if  last question then render results and form
-
       renderResults();
       renderForm();
     }
