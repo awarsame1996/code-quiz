@@ -1,7 +1,5 @@
 //target start button
 const startButton = document.getElementById("start-btn");
-//target banner section
-const banner = document.getElementById("banner");
 
 // target main section
 const main = document.getElementById("main");
@@ -50,7 +48,33 @@ const questions = [
   },
 ];
 // function to render banner
-const renderBanner = () => {};
+const renderBanner = () => {
+  const section = document.createElement("section");
+  section.setAttribute(
+    "class",
+    " content-section animate__animated animate__bounceInDown"
+  );
+  section.setAttribute("id", "banner");
+  const h1 = document.createElement("h1");
+  h1.setAttribute("class", "content-section-title");
+  h1.textContent = "welcome to the hardest premier league quiz";
+  const h2 = document.createElement("h2");
+  h2.setAttribute("class", "content-section-info");
+  h2.textContent = "enter at your own risk";
+  const btnDiv = document.createElement("div");
+  btnDiv.setAttribute(
+    "class",
+    "btn-control animate__animated animate__bounceInDown"
+  );
+  const button = document.createElement("button");
+  button.setAttribute("class", "btn");
+  button.setAttribute("id", "start-btn");
+  button.textContent = "start";
+  btnDiv.append(button);
+  section.append(h1, h2, btnDiv);
+  main.append(section);
+  button.addEventListener("click", onStartButtonClick);
+};
 // function to restart
 const renderRestart = () => {
   const section = document.createElement("section");
@@ -245,7 +269,6 @@ const renderQuestion = () => {
 
 //function to banner section
 const removeBanner = () => {
-  console.log("remove banner");
   banner.remove();
 };
 // function to remover question section
@@ -367,5 +390,4 @@ const onStartButtonClick = () => {
 };
 
 // add event listener to next button
-startButton.addEventListener("click", onStartButtonClick);
 window.addEventListener("load", handleLoad);
