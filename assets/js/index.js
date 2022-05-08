@@ -3,12 +3,16 @@ const startButton = document.getElementById("start-btn");
 
 // target main section
 const main = document.getElementById("main");
+const timerSpan = document.getElementById("time-span");
 
 // current question index
 let questionIndex = 0;
 
 //current score index
 let scoreIndex = 0;
+
+//define time for quiz
+let timeCountdown = 60;
 
 //all questions array
 const questions = [
@@ -282,6 +286,36 @@ const renderQuestion = () => {
   section.addEventListener("click", handleOptionClick);
 };
 
+// function to render timer
+const renderTimerSection = () => {
+  console.log("render-timer");
+  // use HTML as guide and build in JS
+  const timerSection = document.createElement("section");
+  timerSection.setAttribute("class", "timer-section");
+  timerSection.setAttribute("id", "timer");
+  const timeRemaining = document.createElement("div");
+  timeRemaining.setAttribute("class", "timer");
+  const timeSpan = document.createElement("span");
+  timeSpan.setAttribute("id", "time-span");
+  timeSpan.setAttribute("class", "time-span-class");
+
+  //append span to time remaining then time remaining to section
+  timeRemaining.appendChild(timeSpan);
+  timerSection.append(timeRemaining);
+  main.append(timerSection);
+
+  // function for timer countdown
+  const timerCountdownUpdate = () => {
+    //reduce time
+    timeCountdown -= 1;
+    timeSpan.textContent = `Time Remaining: ${timeCountdown}`;
+    if (timeCountdown === 0) {
+      clearInterval(timerId);
+    }
+  };
+  const timerId = setInterval(timerCountdownUpdate, 1000);
+};
+
 //function to banner section
 const removeBanner = () => {
   banner.remove();
@@ -290,6 +324,11 @@ const removeBanner = () => {
 const removeQuestion = () => {
   console.log("remove question");
   document.getElementById("question-container").remove();
+};
+// function to remover timer section
+const removeTimerSection = () => {
+  console.log("remove question");
+  document.getElementById("timer").remove();
 };
 // function to remover question section
 const removeSubmitResults = () => {
@@ -344,8 +383,16 @@ const handleOptionClick = (event) => {
     console.log("cprrect is :" + correctValue);
 
     if (value == correctValue) {
+      //add to score by 1
       scoreIndex += 1;
       console.log("current score" + scoreIndex);
+      // add 5 seconds from timer
+      timeCountdown += 2;
+    } else {
+      //alert incorrect answer
+      alert("incorrect answer");
+      //remove 5 seconds from timer
+      timeCountdown -= 5;
     }
     //build an answer object that contains question and answer
     const answer = {
@@ -353,7 +400,7 @@ const handleOptionClick = (event) => {
       value,
     };
 
-    //TODO: store answer in local storage
+    // store answer in local storage
     storeInLS("feedbackResults", answer);
     //remove question
     removeQuestion();
@@ -365,6 +412,9 @@ const handleOptionClick = (event) => {
       renderQuestion();
     } else {
       // if  last question then render results and form
+      const finalTime = timeCountdown;
+      console.log("final time: " + finalTime);
+      removeTimerSection();
       renderResults();
       renderForm();
     }
@@ -404,6 +454,8 @@ const onStartButtonClick = () => {
   console.log("start button clicked");
   //initialise feedback results
   initialiseLocalStorage();
+  // render the rimer
+  renderTimerSection();
   //remove banner section
   removeBanner();
 

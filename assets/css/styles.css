@@ -117,6 +117,23 @@ body {
   justify-content: center;
   margin: 0 15rem;
 }
+/* start of timer section */
+.timer-section {
+  letter-spacing: 0.6rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  color: var(--beige);
+  box-shadow: 0rem 0rem 0.7rem var(--beige);
+  border-radius: 10%;
+}
+.timer {
+  background-color: #1a3c40;
+  width: fit-content;
+}
+/* end of timer section */
 /* start of question styles */
 .question-container {
   padding: 0%;
@@ -216,9 +233,24 @@ body {
   color: var(--beige);
   letter-spacing: 0.4rem;
 }
+.footer-icon {
+  margin: 20px;
+  margin-left: 2rem;
+}
+.footer-icon a {
+  text-decoration: none;
+  color: var(--text);
+}
+.footer-icon:hover a {
+  cursor: pointer;
+  color: var(--red);
+}
+.footer-icon i {
+  font-size: 2rem;
+}
 .contact-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 
   justify-content: center;
