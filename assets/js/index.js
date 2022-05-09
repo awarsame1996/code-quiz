@@ -107,10 +107,8 @@ const renderRestart = () => {
 };
 //function to render results
 const renderResults = () => {
-  console.log("renderResults");
   const tableArr = JSON.parse(localStorage.getItem("feedbackResults"));
-  console.log(tableArr);
-  //creat section
+  //create section
   const section = document.createElement("section");
   section.setAttribute("class", "content-section");
   section.setAttribute("id", "results-container");
@@ -205,7 +203,6 @@ const renderResults = () => {
 };
 //function to render form
 const renderForm = () => {
-  console.log("renderForm");
   const section = document.createElement("section");
   section.setAttribute("class", "form-section content-section");
   section.setAttribute("id", "form-container");
@@ -240,7 +237,6 @@ const renderForm = () => {
 };
 //function to render question
 const renderQuestion = () => {
-  console.log("render question");
   //get current question
   const currentQuestion = questions[questionIndex];
   // create section
@@ -292,7 +288,6 @@ const renderQuestion = () => {
 
 // function to render timer
 const renderTimerSection = () => {
-  console.log("render-timer");
   // use HTML as guide and build in JS
   const timerSection = document.createElement("section");
   timerSection.setAttribute("class", "timer-section");
@@ -326,12 +321,10 @@ const removeBanner = () => {
 };
 // function to remover question section
 const removeQuestion = () => {
-  console.log("remove question");
   document.getElementById("question-container").remove();
 };
 // function to remover timer section
 const removeTimerSection = () => {
-  console.log("remove question");
   document.getElementById("timer").remove();
 };
 // function to remover question section
@@ -370,8 +363,6 @@ const handleLoad = (event) => {
 };
 // event handler function to handle click events in question section
 const handleOptionClick = (event) => {
-  console.log("clicked somewhere in question section");
-
   // get target
   const target = event.target;
   //check if click originates from li
@@ -379,18 +370,14 @@ const handleOptionClick = (event) => {
   if (target.tagName === "LI") {
     //get the option the user clicked on
     const value = target.getAttribute("data-value");
-    console.log(value);
     //get the question the user answered
     const question = questions[questionIndex].text;
-    console.log(question);
     //get the right answer to the question the user answered
     const correctValue = questions[questionIndex].answer;
-    console.log("correct is :" + correctValue);
 
     if (value == correctValue) {
       //add to score by 1
       scoreIndex += 1;
-      console.log("current score" + scoreIndex);
       // add 5 seconds from timer
       timeCountdown += 2;
     } else {
@@ -418,7 +405,6 @@ const handleOptionClick = (event) => {
     } else {
       // if  last question then render results and form
       const finalTime = timeCountdown;
-      console.log("final time: " + finalTime);
       removeTimerSection();
       renderResults();
       renderForm();
@@ -455,7 +441,6 @@ const handleFormSubmit = (event) => {
 
 //declare the event handler function for start button click
 const onStartButtonClick = () => {
-  console.log("start button clicked");
   //initialise feedback results
   initialiseLocalStorage();
   // render the rimer
