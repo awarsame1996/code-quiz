@@ -420,7 +420,7 @@ const handleFormSubmit = (event) => {
   const finalTime = timeCountdown + " seconds";
   //validate
   if (fullName) {
-    // build object with fullname and results
+    // build object with full name and results
     const results = {
       fullName,
       score,
@@ -443,7 +443,7 @@ const handleFormSubmit = (event) => {
 const onStartButtonClick = () => {
   //initialise feedback results
   initialiseLocalStorage();
-  // render the rimer
+  // render the timer
   renderTimerSection();
   //remove banner section
   removeBanner();
