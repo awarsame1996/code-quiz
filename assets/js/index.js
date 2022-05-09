@@ -122,6 +122,10 @@ const renderResults = () => {
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "content-section-info");
   h2.textContent = "your score was: " + scoreIndex + "/" + questions.length;
+  //create scoreboard
+  const timer = document.createElement("h2");
+  timer.setAttribute("class", "content-section-info");
+  timer.textContent = "time remaining: " + timeCountdown + " seconds";
   // create div container for results
   const div = document.createElement("div");
   div.setAttribute("class", "results-section");
@@ -196,7 +200,7 @@ const renderResults = () => {
   ul.append(li1, li2, li3, li4, li5, li6, li7, li8);
 
   div.append(ul);
-  section.append(title, h2, div);
+  section.append(title, h2, timer, div);
   main.append(section);
 };
 //function to render form
@@ -308,7 +312,7 @@ const renderTimerSection = () => {
   const timerCountdownUpdate = () => {
     //reduce time
     timeCountdown -= 1;
-    timeSpan.textContent = `Time Remaining: ${timeCountdown}`;
+    timeSpan.textContent = `Time Remaining: ${timeCountdown} seconds`;
     if (timeCountdown === 0) {
       clearInterval(timerId);
     }
@@ -379,8 +383,9 @@ const handleOptionClick = (event) => {
     //get the question the user answered
     const question = questions[questionIndex].text;
     console.log(question);
+    //get the right answer to the question the user answered
     const correctValue = questions[questionIndex].answer;
-    console.log("cprrect is :" + correctValue);
+    console.log("correct is :" + correctValue);
 
     if (value == correctValue) {
       //add to score by 1
@@ -426,15 +431,14 @@ const handleFormSubmit = (event) => {
   //get full name from input
   const fullName = document.getElementById("full-name").value;
   const score = scoreIndex + "/" + questions.length;
+  const finalTime = timeCountdown + " seconds";
   //validate
   if (fullName) {
-    // if valid then store name and score
-    const feedbackResults = JSON.parse(localStorage.getItem("feedbackResults"));
     // build object with fullname and results
     const results = {
       fullName,
-      feedbackResults,
       score,
+      finalTime,
     };
 
     // push results back to LS
