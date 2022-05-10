@@ -59,4 +59,4 @@ Live URL: [here](https://awarsame1996.github.io/code-quiz/)
 
 ### Desktop Viewport
 
-![desktop viewport](./assets/images/screencapture-127-0-0-1-5500-index-html-2022-04-26-23_20_02.png)
+![desktop viewport](./assets/images/screencapture-awarsame1996-github-io-code-quiz-2022-05-10-20_27_37.png)
