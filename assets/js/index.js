@@ -12,7 +12,7 @@ let questionIndex = 0;
 let scoreIndex = 0;
 
 //define time for quiz
-let timeCountdown = 60;
+let timeCountdown = 5;
 
 //all questions array
 const questions = [
@@ -408,6 +408,7 @@ const handleOptionClick = (event) => {
       removeTimerSection();
       renderResults();
       renderForm();
+   
     }
   }
 };
@@ -450,6 +451,7 @@ const onStartButtonClick = () => {
 
   //render the question
   renderQuestion();
+  
 };
 
 // add event listener to next button
